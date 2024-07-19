@@ -1,13 +1,18 @@
 import { useWeb3Context } from "../contexts/useWeb3context";
+import { connectWallet } from "../utils/connectWallet";
 
 const Wallet = () => {
    const web3State = useWeb3Context();
-   console.log(web3State)
+   const handleWalletConnections = async() => {
+    const {contractInstance,selectedAccount} = await connectWallet()
+     console.log(contractInstance,selectedAccount)
+   }
+ 
 
    return (
-    <div>
-        Wallet
-    </div>
+    <button onClick={handleWalletConnections}>
+      Connect Wallet
+    </button>
 )
 
 } 
