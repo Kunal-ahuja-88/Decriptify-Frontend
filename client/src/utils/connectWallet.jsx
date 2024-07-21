@@ -28,7 +28,8 @@ import axios from "axios"
         const url = `http://localhost:3000/api/authentication?address=${selectedAccount}`
         
         const res = await axios.post(url,dataSignature)
-        console.log(res.data)
+        const token = res.data.token;
+        localStorage.setItem("token",token)
         
         const contractAddress = "0x1841417CcF7A9D9D1038a53C5493173F0BD92e79"
         const contractInstance = new ethers.Contract(contractAddress , contractAbi , signer)

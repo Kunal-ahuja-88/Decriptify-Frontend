@@ -1,5 +1,5 @@
 import { Web3Provider } from './contexts/Web3Provider'
-import './App.css'
+
 import { RouterProvider } from 'react-router-dom'
 import { routes } from './routes/routes'
 
