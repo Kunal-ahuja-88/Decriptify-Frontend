@@ -1,18 +1,22 @@
 import { useWeb3Context } from "../contexts/useWeb3context"
 import UploadImage from "../components/uploadImage"
 import GetImage from "../components/getImage"
+import { useState } from "react"
 
 const Home = () => {
 
+    const [reload , setReload] = useState(false)
 
-    //const {web3State} = useWeb3Context();
-    //const {selectedAccount} = web3State;
+
+    const reloadEffect = () => {
+        setReload(!reload)
+    }
    
 
     return (
     <div className="relative h-full w-screen flex flex-col justify-center items-center ">
-    <UploadImage />
-    <GetImage />
+    <UploadImage reloadEffect ={reloadEffect}/>
+    <GetImage reload={!reload}/>
     </div>
     )
 }
